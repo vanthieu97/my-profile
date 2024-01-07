@@ -1,5 +1,7 @@
 :root {
-  --color-primary: #008484;
+  --color-primary: #003c72;
+  --color-text: #444;
+  --color-disabled: #999;
 }
 
 html {
@@ -8,11 +10,10 @@ html {
 
 body {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.4em;
-  color: #666;
-  font-family: roboto, Arial, sans-serif;
-  background-color: #525659a0;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+  color: var(--color-text);
+  font-family: monospace, sans-serif;
 }
 
 * {
@@ -21,7 +22,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #666;
+  color: var(--color-text);
 }
 
 p {
@@ -29,161 +30,93 @@ p {
   margin: 0;
 }
 
-.header span {
-  font-size: 20px;
-  color: var(--color-primary);
-  font-weight: 600;
+section:not(:first-child) {
+  margin-top: 30px;
+  .header {
+    position: relative;
+    display: block;
+    margin-bottom: 12px;
+    font-size: 24px;
+    color: var(--color-primary);
+    font-weight: 600;
+    &::after {
+      content: "";
+      width: 100%;
+      display: block;
+      height: 1px;
+      background-color: #d4d4d4;
+      margin-top: 6px;
+    }
+  }
 }
 
 .container {
   max-width: 800px;
-  margin: 0 auto;
-  display: flex;
+  margin: auto;
   position: relative;
-  border: solid var(--color-primary);
-  border-width: 2px 1px;
-}
-
-.left-content {
-  width: calc(100% * 5 / 12);
-  padding: 9.5mm 6mm;
-  background-color: var(--color-primary);
-  color: #fff;
-  float: left;
-}
-
-.left-content .header span,
-.left-content a {
-  color: #fff;
+  /* padding: 30px 0; */
 }
 
 .full-name {
-  font-size: 34px;
+  font-size: 30px;
   line-height: 1em;
   text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.position {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.avatar {
-  width: 100%;
-  aspect-ratio: 0.75;
-  padding: 2px;
-  margin: 0 auto 25px;
-}
-
-.avatar img {
-  width: 100%;
-  height: 100%;
-}
-
-.information .info-item {
-  margin-top: 6px;
-}
-
-.information .info-item i {
-  width: 20px;
-  color: var(--text-color-sidebar);
-}
-
-.skill-wrapper .skill-header {
-  font-weight: 700;
-  line-height: 30px;
-}
-
-.skill-wrapper .skill-desc,
-.hobbies-wrapper .hobby {
-  line-height: 22.5px;
-}
-
-.right-content {
-  width: calc(100% * 7 / 12);
-  padding: 9.5mm 6mm;
-  float: left;
-  background-color: #fff;
-  height: 100%;
-}
-
-.objective-desc {
-  line-height: 22.5px;
-}
-
-.job-wrapper:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.job-wrapper .job-timeline {
-  display: flex;
-  justify-content: space-between;
-}
-
-.job-wrapper .title {
-  font-weight: 700;
-  color: #555;
-  font-size: 16px;
-}
-
-.job-wrapper .timeline {
-  color: #9c9c9c;
-  font-style: italic;
-  white-space: nowrap;
-}
-
-.job-wrapper .company-name {
-  color: #9c9c9c;
-  line-height: 30px;
-  font-weight: 500;
-}
-
-.job-wrapper .job-desc {
-  line-height: 22.5px;
-  text-align: justify;
-}
-
-.job-wrapper .job-sub-desc {
-  font-weight: 700;
-}
-
-.copyright {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
-  font-size: 13px;
-  color: #9c9c9c;
-  font-style: italic;
-}
-
-.mb-5 {
-  margin-bottom: 5px;
-}
-
-.mb-15 {
-  margin-bottom: 15px;
-}
-
-.color-primary {
+  font-weight: 600;
+  margin-bottom: 6px;
   color: var(--color-primary);
 }
 
-.ta-center {
-  text-align: center;
+.position {
+  font-size: 16px;
+  color: var(--color-primary);
+}
+.information {
+  display: flex;
+  flex-wrap: wrap;
+  .info-item {
+    margin-top: 6px;
+    flex: 1 0 50%;
+    width: 20px;
+  }
 }
 
-.ta-justify {
-  text-align: justify;
+.skill-header {
+  font-weight: 700;
+  line-height: 30px;
 }
 
-.divider {
-  width: 100%;
-  height: 2.5px;
-  background-color: #fff;
-}
+.milestone-wrapper {
+  margin-top: 20px;
+  display: flex;
+  gap: 24px;
+  .timeline {
+    width: 180px;
+    color: var(--color-disabled);
+    white-space: nowrap;
+  }
+  .detail {
+    flex: 1;
+  }
 
-.py-20 {
-  padding: 20px 0;
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .organization {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--color-disabled);
+    a {
+      color: var(--color-disabled);
+    }
+  }
+
+  .desc {
+    margin-top: 8px;
+    text-align: justify;
+    p {
+      margin-top: 2.2px;
+    }
+  }
 }
